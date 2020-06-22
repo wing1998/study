@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+    <!-- 设置参数 -->
+    <settings>
+        <!-- 影响所有映射器的配置缓存的全局开关 -->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+
+    <!-- 写入配置文件 -->
+    <typeAliases><!-- 别名 -->
+        <typeAlias alias="user" type="com.sicau.pojo.User"/>
+        <typeAlias alias="order" type="com.sicau.pojo.UOrder"/>
+        <typeAlias alias="product" type="com.sicau.pojo.Product"/>
+    </typeAliases>
+
+    <!-- 数据库厂商标识 -->
+    <databaseIdProvider type="com.sicau.databaseId.MyDatabaseIdProvider">
+        <property name="message" value="自定义DatabaseIdProvider"/>
+    </databaseIdProvider>
+
+    <!-- 映射文件 -->
+    <mappers>
+        <!-- 文件路径引入 -->
+        <mapper resource="com/sicau/mapper/UserMapper.xml"/>
+        <mapper resource="com/sicau/mapper/ProductMapper.xml"/>
+        <mapper resource="com/sicau/mapper/UOrderMapper.xml"/>
+        <mapper resource="com/sicau/mapper/ShopCartMapper.xml"/>
+    </mappers>
+
+</configuration>

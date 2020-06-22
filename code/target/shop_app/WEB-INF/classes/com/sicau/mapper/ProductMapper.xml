@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sicau.mapper.UserMapper">
+    <resultMap id="productMap" type="product">
+        <id property="pId" column="p_id" javaType="long" jdbcType="INTEGER"/>
+        <result property="sId" column="s_id" javaType="long" jdbcType="INTEGER"/>
+        <result property="oId" column="o_id" javaType="long" jdbcType="INTEGER"/>
+        <result property="pName" column="p_name" javaType="string" jdbcType="VARCHAR"/>
+        <result property="pInfo" column="p_info" javaType="string" jdbcType="VARCHAR"/>
+        <result property="pNum" column="p_num" javaType="long" jdbcType="INTEGER"/>
+        <result property="pPrice" column="p_price" javaType="double" jdbcType="DECIMAL"/>
+        <result property="picture" column="picture" javaType="string" jdbcType="VARCHAR"/>
+    </resultMap>
+    <select id="getProductsByOId" parameterType="long" resultMap="productMap">
+        select * from product where o_id=#{oId}
+    </select>
+</mapper>

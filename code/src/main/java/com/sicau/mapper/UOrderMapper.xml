@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sicau.mapper.UserMapper">
+    <resultMap id="orderMap" type="order">
+        <id property="uId" column="u_id" javaType="long" jdbcType="INTEGER"/>
+        <result property="oId" column="o_id" javaType="long" jdbcType="INTEGER"/>
+        <result property="pId" column="p_id" javaType="long" jdbcType="long"/>
+        <result property="totalPrice" column="total_price" javaType="double" jdbcType="DECIMAL"/>
+        <result property="oTime" column="o_time" javaType="java.sql.Date" jdbcType="DATE"/>
+    </resultMap>
+    <select id="getOIdByUId" parameterType="long" resultType="long">
+        select * from u_order where u_id=#{uId}
+    </select>
+</mapper>

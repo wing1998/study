@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>个人主页</title>
+		<style type="text/css">
+			table{
+				border:1px solid black;
+				empty-cells: show;
+				width: 500px;
+				border-collapse: collapse;
+			}
+			tr{
+				border:1px solid black;
+				margin: 0;
+				width: 100px;
+			}
+			td,th{
+				background-color: #EEEEEE;
+				border:1px solid black;
+			}
+			form{
+				width: 10px;
+				height: 20px;
+				position: absolute;
+			}
+			input{
+				width: 100px;
+				height: 50px;
+			}
+			span{
+				color: red;
+			}
+			p{
+				position: absolute;
+				left: 80%;
+				top: 20px;
+			}
+			.form1{
+				position:relative;
+				float: right;
+				right: 30%;
+			}
+			.input1{
+				position: relative;
+				width: 50px;
+				height: 20px;
+			}
+			.kuai{
+				width: 500px;
+				height: 500px;
+			}
+			.photo{
+				width: 100%;
+				height: 60%;
+				background-color: gainsboro;
+			}
+			.message{
+				width: 100%;
+				height: 40%;
+				background-color: #808080;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>个人主页</h1>
+			<form action="index.html" style="left: 30%;top: 20px;">
+			<input type="submit" value="首页"/>
+			</form>
+			<form action="#" style="left: 40%;top: 20px;">
+			<input type="submit" value="购物车"/>
+			</form>
+			<form action="Product release.html" style="left: 50%;top: 20px;">
+			<input type="submit" value="商品发布"/>
+			</form>
+			<form action="/" style="left: 60%;top: 20px;">
+			<input type="submit" value="退出登录"/>
+			</form>
+			<p>当前帐号：<span>???</span></p>
+            <hr/>
+			<div class="kuai">
+				<div class="photo">
+					<img src="#"  alt=""/>
+				</div>
+				<div class="message">
+					<h2 style="color: #000000;margin-top: 0px;float: left;">商品号：</h2>
+					<h2 style="color: #000000;margin-top: 0px;" class="msg">???</h2>
+					<br />
+					<h2 style="color: #000000;margin-top: 0px;float: left;">下单时间：</h2>
+					<h2 style="color: #000000;margin-top: 0px;" class="msg">???</h2>
+					<br />
+					<h2 style="color: #000000;margin-top: 0px;float: left;">价格：</h2>
+					<h2 style="color: #000000;margin-top: 0px;" class="msg">???</h2>
+				</div>
+			</div>
+			<br />
+		<script src="js/jquery-1.12.4.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script>
+			$(function () {
+				// 实现对于DOM元素的渲染功能
+				const renderDOM = function (data) {
+				};
+
+				const requestGET = function (urlString, dataJSON={}) {
+					$.ajax({
+						url: urlString,
+						type: 'GET',
+						contentType: "application/json",
+						data: JSON.stringify(dataJSON),
+						dataType: 'json',
+						success: function (data) {
+							console.log("[+] data:\n" + data);
+							renderDOM(data);
+						},
+						error: function (error) {
+							alert(error.toString());
+						}
+					})
+				};
+
+				window.onload = function (e1, e2) {
+					$.cookie("uname", "ZX", {path: '/'});
+					// document.cookie = "name=ZX; path=/";
+					const initData = {};
+					const initString = '/user/userdata';
+					requestGET(initString, initData);
+					// console.log(document.cookie);
+				}
+			});
+
+		</script>
+	</body>
+</html>
