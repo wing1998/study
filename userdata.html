@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>个人主页</title>
+	</head>
+	<script type="text/javascript">
+	var xmlhttp;
+	function loadXMLDoc(url)
+	{
+	xmlhttp=null;
+	if (window.XMLHttpRequest)
+	  {// code for IE7, Firefox, Opera, etc.
+	  xmlhttp=new XMLHttpRequest();
+	  }
+	else if (window.ActiveXObject)
+	  {// code for IE6, IE5
+	  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+	  }
+	if (xmlhttp!=null)
+	  {
+	  xmlhttp.onreadystatechange=state_Change;
+	  xmlhttp.open("GET",url,true);
+	  xmlhttp.send(null);
+	  }
+	else
+	  {
+	  alert("Your browser does not support XMLHTTP.");
+	  }
+	}
+	
+	function state_Change()
+	{
+	if (xmlhttp.readyState==4)
+	  {// 4 = "loaded"
+	  if (xmlhttp.status==200)
+	    {// 200 = "OK"
+	    document.getElementById('A1').innerHTML=xmlhttp.status;
+	    document.getElementById('A2').innerHTML=xmlhttp.statusText;
+	    document.getElementById('A3').innerHTML=xmlhttp.responseText;
+	    }
+	  else
+	    {
+	    alert("Problem retrieving XML data:" + xmlhttp.statusText);
+	    }
+	  }
+	}
+	</script>
+	<style type="text/css">
+		table{
+			border:1px solid black;
+			empty-cells: show;
+            width: 500px;
+            border-collapse: collapse;
+		}
+		tr{
+			border:1px solid black;
+			margin: 0;
+			width: 100px;
+		}
+		td,th{
+			background-color: #EEEEEE;
+			border:1px solid black;
+		}
+		form{
+			width: 10px;
+			height: 20px;
+			position: absolute;
+		}
+		input{
+			width: 100px;
+			height: 50px;
+		}
+		span{
+			color: red;
+		}
+		p{
+			position: absolute;
+			left: 80%;
+			top: 20px;
+		}
+		.form1{
+			position:relative;
+			float: right;
+			right: 30%;
+		}
+		.input1{
+			position: relative;
+			width: 50px;
+			height: 20px;
+		}
+		.kuai{
+			width: 500px;
+			height: 500px;
+		}
+		.photo{
+			width: 100%;
+			height: 60%;
+			background-color: gainsboro;
+		}
+		.message{
+			width: 100%;
+			height: 40%;
+			background-color: #808080;
+		}
+	</style>
+	<body>
+		<h1>个人主页</h1>
+			<form action="index.html" style="left: 30%;top: 20px;">
+			<input type="submit" value="首页"/>
+			</form>
+			<form action="#" style="left: 40%;top: 20px;">
+			<input type="submit" value="购物车"/>
+			</form>
+			<form action="Product release.html" style="left: 50%;top: 20px;">
+			<input type="submit" value="商品发布"/>
+			</form>
+			<form action="/" style="left: 60%;top: 20px;">
+			<input type="submit" value="退出登录"/>
+			</form>
+			<p>当前帐号：<span>{$Think.session.name}</span></p>
+            <hr/>
+			<div class="kuai">
+				<div class="photo">
+					<img src="#" />
+				</div>
+				<div class="message">
+					<h2 style="color: #000000;margin-top: 0px;float: left;">商品号：</h2>
+					<h2 style="color: #000000;margin-top: 0px;">???</h2>
+					<br />
+					<h2 style="color: #000000;margin-top: 0px;float: left;">下单时间：</h2>
+					<h2 style="color: #000000;margin-top: 0px;">???</h2>
+					<br />
+					<h2 style="color: #000000;margin-top: 0px;float: left;">价格：</h2>
+					<h2 style="color: #000000;margin-top: 0px;">???</h2>
+				</div>
+			</div>
+			<br />
+	</body>
+</html>
