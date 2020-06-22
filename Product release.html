@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>商品发布</title>
+	</head>
+    <style>
+		.f{
+			width: 300px;
+			text-align: center;
+			left: 50%;
+			top: 30%;
+			background-color: white;
+			margin-left:-150px;
+			margin-top: -150px;
+			position: absolute;
+		}
+    </style>
+	<body>
+		<h1>商品发布页面</h1>
+		   	<form action="userdata.html" style="left: 50%;top: 20px;position: absolute;">
+			<input style="width: 70px;height: 50px;" type="submit" value="个人主页"/>
+		    </form>
+		<h4 style="position: absolute;left: 80%;top:20px">当前帐号：<span style="color: red;">{$Think.session.name}</span></h4>
+		<hr />
+	<form action="#" method="post" class="f">
+		<fieldset>
+		<h2>商品发布</h2>
+		<span>价格：</span>
+		<input type="text" name="zhanghao"/>
+		<br />
+		<span>数量：</span>
+		<input type="password" name="mima"/>
+		<br />
+		<span style="position: absolute;left: 33px;">图片：</span>
+		<input type="file" style="position: absolute;left: 100px;" />
+		<br />
+		</fieldset>
+	</form>
+	</body>
+</html>
